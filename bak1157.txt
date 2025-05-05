@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char a;
+    char arr[1000000];
+    int stch =0;
+    int count=0;
+    int max=0;
+    scanf("%s",arr);
+    int len=0;
+    len=strlen(arr);
+    for(int i=0;i<len;i++){
+        if(arr[i]>=97){
+            arr[i]=arr[i]-32;
+        }
+    }
+    for(int i=0;i<len;i++){
+        for(int j=i;j<len;j++){
+            if(arr[i]==arr[j]){
+                count=count+1;
+            }
+        }
+        if(max<count){
+            max=count;
+            stch=0;
+            a=arr[i];
+        }
+        else if(max==count){
+            stch=1;
+        }
+        count=0;
+    }
+    if(stch==0){
+        printf("%c",a);
+    }
+    else if(stch==1){
+        printf("?");
+    }
+}
