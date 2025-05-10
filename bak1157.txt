@@ -16,8 +16,12 @@ int main()
         }
     }
     for(int i=0;i<len;i++){
-        for(int j=i;j<len;j++){
+        for(int j=i+1;j<len;j++){
+            if(arr[i]=='\0'){
+                break;
+            }
             if(arr[i]==arr[j]){
+                arr[j]='\0';
                 count=count+1;
             }
         }
@@ -31,7 +35,10 @@ int main()
         }
         count=0;
     }
-    if(stch==0){
+    if(len==1){
+        printf("%c",arr[0]);
+    }
+    else if(stch==0){
         printf("%c",a);
     }
     else if(stch==1){
